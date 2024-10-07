@@ -1,0 +1,24 @@
+# add_users.yml
+---
+- name: Ajouter des utilisateurs et gérer les groupes
+  hosts: all
+  become: yes
+  remote_user: root
+  vars_files:
+    - users_groups.yaml  # Inclusion du fichier des utilisateurs
+
+  tasks:
+    - name: Créer les groupes si nécessaires
+      group:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ users | map(attribute='groups') | flatten | unique }}"
+      tags: create_groups
+
+    - name: Ajouter les utilisateurs et les assigner aux groupes
+      user:
+        name: "{{ item.name }}"
+        groups: "{{ item.groups | join(',') }}"
+        state: present
+      loop: "{{ users }}"
+      tags: add_users

@@ -1,0 +1,16 @@
+# delete_user.yml
+---
+- name: Supprimer des utilisateurs à partir d'un fichier YAML
+  hosts: all
+  remote_user: root
+  become: yes
+  vars_files:
+    - users.yaml  # Fichier contenant les utilisateurs à supprimer
+
+  tasks:
+    - name: Supprimer les utilisateurs
+      user:
+        name: "{{ item }}"
+        state: absent
+        remove: yes
+      loop: "{{ users }}"

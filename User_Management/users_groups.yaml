@@ -1,0 +1,16 @@
+#users_groups.yaml
+users:
+  - name: "user1"
+    groups:
+      - "admin"
+      - "developers"
+  - name: "user2"
+    groups:
+      - "users"
+  - name: "user3"
+    groups:
+      - "users"
+      - "audit"
+  - name: "test"
+    groups:
+      - "audit"

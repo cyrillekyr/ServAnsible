@@ -1,0 +1,135 @@
+- name: Add users and groups
+  hosts: all
+  become: yes
+  remote_user: root
+  vars_files:
+    - user_data.yml  # Inclusion du fichier des utilisateurs
+
+  tasks:
+    - name: Créer les groupes si nécessaires
+      group:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ users | map(attribute='groups') | flatten | unique }}"
+      tags: create_groups
+
+    - name: Ajouter les utilisateurs et les assigner aux groupes
+      user:
+        name: "{{ item.name }}"
+        groups: "{{ item.groups | join(',') }}"
+        state: present
+      loop: "{{ users }}"
+      tags: add_users
+
+
+
+- name: Change shell from sh to bash
+  hosts: all
+  become: true
+  remote_user: root
+  tasks:
+    - name: Copy change_shell.sh file
+      copy:
+        src: ../Resources/change_shell.sh
+        dest: /root/change_shell.sh
+        mode: 0755
+
+    - name: Execution of  script
+      shell: /root/change_shell.sh
+
+    - name: Deletion of  script change_shell.sh
+      file:
+        path: /root/change_shell.sh
+        state: absent
+
+- name: Install sudo
+  hosts: all
+  become: true
+  remote_user: root
+  tasks:
+    - name: Install  sudo
+      package:
+        name: sudo
+        state: present
+
+
+- name: Set up sudo rights
+  hosts: all
+  become: true
+  remote_user: root
+  tasks:
+    - name: Copy the script sudovi
+      copy:
+        src: ../Resources/sudovi-user.sh
+        dest: /root/sudovi-user.sh
+        mode: 0755
+
+    - name: Execution of script
+      shell: /root/sudovi-user.sh
+
+    - name: Deletion of script from remote machine
+      file:
+        path: /root/sudovi-user.sh
+        state: absent
+
+- name:  SSHAM deployment
+  hosts: all
+  become: true
+  remote_user: root
+  tasks:
+    - name: Copy script.sh on all servers
+      copy:
+        src: ../Resources/load-key.sh
+        dest: /root/load-key.sh
+        mode: 0755
+    - name: Copy of ssham  key
+      copy:
+        src: ../Resources/ssham-key
+        dest: /root/ssham-key
+
+    - name: Execute the script
+      shell: /root/load-key.sh
+
+    - name: Deletion of  load-key.sh
+      file:
+        path: /root/load-key.sh
+        state: absent
+    - name: Delete  ssham-key
+      file:
+        path: /root/ssham-key
+        state: absent
+
+
+- name: Bashrc improvement 
+  hosts: all
+  become: true
+  remote_user: root
+  tasks:
+    - name: Copy  load_bashrc.sh  on all servers
+      copy:
+        src: ../Resources/load_bashrc.sh
+        dest: /root/load_bashrc.sh
+        mode: 0755
+
+    - name: Copy .bashrc on all servers
+      copy:
+        src: ../Resources/.bashrc
+        dest: /root/.bashrc
+        mode: 0755
+
+    - name: Execute the script 
+      shell: /root/load_bashrc.sh
+
+    - name: Del
+      file:
+        path: /root/load_bashrc.sh
+        state: absent
+
+- name: Permit to non-root to execute ping
+  hosts: all
+  gather_facts: no
+
+  tasks:
+    - name: Execute the command
+      command: setcap cap_net_raw+p /usr/bin/ping
+      register: command_output

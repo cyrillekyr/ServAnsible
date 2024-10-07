@@ -1,0 +1,15 @@
+{
+    "nodes": [
+        {
+            "json_file": "node1.json",
+            "noeud": "node1"
+        }
+
+    ],
+    "groups": [
+        "LAN",
+        "DMZ",
+        "WAN",
+        "DEV"
+    ]
+}

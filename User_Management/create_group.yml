@@ -1,0 +1,19 @@
+# create_groups.yml
+---
+- name: Créer des groupes à partir d'un fichier YAML
+  hosts: all
+  become: yes
+  remote_user: root
+  vars_files:
+    - groups.yaml  # Inclusion du fichier des groupes
+
+  tasks:
+    - name: Afficher le contenu de la variable groups
+      debug:
+        var: groups_list
+
+    - name: Créer les groupes
+      group:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ groups_list }}"

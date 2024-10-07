@@ -1,0 +1,168 @@
+{
+  "timestamp": "2024-09-20T20:40:27Z",
+  "level": "{}[1]",
+  "service": "{USER MANAGEMENT}[0]",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Dynamic Inventory"
+}
+{
+  "timestamp": "2024-09-20T20:42:18Z",
+  "level": "{ERROR}[1]",
+  "service": "{USER MANAGEMENT}[0]",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Dynamic Inventory"
+}
+{
+  "timestamp": "2024-09-20T20:45:00Z",
+  "level": "ERROR[1]",
+  "service": "USER MANAGEMENT[0]",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Dynamic Inventory"
+}
+{
+  "timestamp": "2024-09-20T20:45:39Z",
+  "level": "INFO",
+  "service": "USER MANAGEMENT",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Dynamic Inventory"
+}
+{
+  "timestamp": "2024-09-20T21:33:08Z",
+  "level": "INFO",
+  "service": "USER MANAGEMENT",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Adding users  on all servers"
+}
+{
+  "timestamp": "2024-09-20T21:35:08Z",
+  "level": "INFO",
+  "service": "USER MANAGEMENT",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Adding users  on all servers"
+}
+{
+  "timestamp": "2024-09-20T21:40:35Z",
+  "level": "INFO",
+  "service": "USER MANAGEMENT",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Deleting users   "test1",  "test2" from all servers"
+}
+{
+  "timestamp": "2024-09-20T21:42:34Z",
+  "level": "INFO",
+  "service": "USER MANAGEMENT",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Deleting users "
+}
+{
+  "timestamp": "2024-09-20T21:54:13Z",
+  "level": "INFO",
+  "service": "USER MANAGEMENT",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Adding users  on all servers"
+}
+{
+  "timestamp": "2024-09-20T21:54:57Z",
+  "level": "INFO",
+  "service": "USER MANAGEMENT",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Adding users user1,user2,user3,test on all servers"
+}
+{
+  "timestamp": "2024-09-20T21:59:28Z",
+  "level": "INFO",
+  "service": "USER MANAGEMENT",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Deleting groups admin,developers,users,audit from all servers"
+}
+{
+  "timestamp": "2024-09-20T22:04:33Z",
+  "level": "INFO",
+  "service": "USER MANAGEMENT",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Deleting users user1,user2,user3,test from all servers"
+}
+{
+  "timestamp": "2024-09-20T22:05:06Z",
+  "level": "INFO",
+  "service": "USER MANAGEMENT",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Deleting users user1,user2,user3,test from all servers in node 'g'"
+}
+{
+  "timestamp": "2024-09-23T15:12:43Z",
+  "level": "INFO",
+  "service": "DYNAMIC INVENTORY",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Dynamic Inventory"
+}
+{
+  "timestamp": "2024-09-23T15:15:05Z",
+  "level": "INFO",
+  "service": "DYNAMIC INVENTORY",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Dynamic Inventory"
+}
+{
+  "timestamp": "2024-09-23T16:40:15Z",
+  "level": "INFO",
+  "service": "VAULT CONFIGURATION",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Vault is not accessible or properly configured. Please check your Vault setup."
+}
+{
+  "timestamp": "2024-09-25T16:20:59Z",
+  "level": "ERROR",
+  "service": "DYNAMIC INVENTORY",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Dynamic Inventory"
+}
+{
+  "timestamp": "2024-09-25T16:22:28Z",
+  "level": "ERROR",
+  "service": "DYNAMIC INVENTORY",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Dynamic Inventory"
+}
+{
+  "timestamp": "2024-09-25T16:32:59Z",
+  "level": "INFO",
+  "service": "USER MANAGEMENT",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Adding users user1,user2,user3,test on all servers"
+}
+{
+  "timestamp": "2024-09-25T16:39:04Z",
+  "level": "INFO",
+  "service": "USER MANAGEMENT",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Deleting users user1,user2,user3,test from all servers"
+}
+{
+  "timestamp": "2024-09-25T16:40:49Z",
+  "level": "INFO",
+  "service": "USER MANAGEMENT",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Deleting groups admin,developers,users,audit from all servers"
+}
