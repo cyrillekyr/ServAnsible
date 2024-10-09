@@ -9,21 +9,21 @@ source config.sh
 function show_help() {
     echo "Usage: $0 action [options]"
     echo "Actions:"
-    echo "  adduser    Add a user"
-    echo "  deluser    Delete a user"
-    echo "  addgroup   Add a group"
-    echo "  delgroup   Delete a group"
-    echo "  setup-serv Deploy default configurations on a server"
-    echo "  dynamic    Dynamic Inventory"
-    echo "  ls-groups   List all available server groups"
-    echo "  list-servers  List all available servers"
-    echo "  list-nodes    List all nodes"
-    echo "  pingtest      Check servers Availability"
-    echo "  setup-vault   Setup passwords for nodes"
+    echo "  adduser         Add a user"
+    echo "  deluser         Delete a user"
+    echo "  addgroup        Add a group"
+    echo "  delgroup        Delete a group"
+    echo "  setup-serv      Deploy default configurations on a server"
+    echo "  dynamic         Dynamic Inventory"
+    echo "  ls-groups       List all available server groups"
+    echo "  list-servers    List all available servers"
+    echo "  list-nodes      List all nodes"
+    echo "  pingtest        Check servers Availability"
+    echo "  setup-vault     Setup passwords for nodes"
     echo ""
     echo "Options:"
     echo "  -a              Deploy on all servers"
-    echo "  -n          Specify a node"
+    echo "  -n              Specify a node"
     echo "  -s SERVERLIST   Specify servers (comma-separated)"
     echo "  -g GROUP        Specify a group of servers"
     echo "  -h              Display help"
@@ -73,7 +73,7 @@ list_nodes() {
 
 # Function to list available servers
 function list_servers() {
-    #dynamic_inventory
+    dynamic_inventory
     echo "[+] Available servers"
     inventory_file="Dynamic_Inventory/all.hosts"
     
@@ -104,7 +104,7 @@ function list_servers() {
 
 # Function to test servers availability 
 function pingtest() {
-    #dynamic_inventory
+    dynamic_inventory
     # Define the command to run the Ansible ping
     ANSIBLE_CMD="ansible all -i Dynamic_Inventory/all.hosts -m ping"
     # Run the Ansible command and capture the output
