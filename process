@@ -6,7 +6,12 @@ On remplit le fichier dynamic_inventory et config.json
 
 
 
-
+On execute le fichier requirements.sh 
 L'utilisateur renseigne les noeuds et groupes dans config.sh et les infos dans dynamic_inventory
-Le vault setup permet de mettre en place les mots de passe pour chaque noeud
- 
+Il faut lancer  : servansible.sh setup-vault pour  mettre en place les mots de passe pour chaque noeud
+Il faut ensuite faire  : bash servansible dynamic pour faire l'inventaire des serveurs disponibles 
+
+
+
+
+

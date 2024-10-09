@@ -55,7 +55,7 @@ def main():
         inventory, group_dict = generer_inventaire(json_file, noeud, groups)
         node_names.append(noeud)
 
-        output_dir = f"../inventories/nodes/{noeud}"
+        output_dir = f"Dynamic_Inventory/nodes/{noeud}"
         os.makedirs(output_dir, exist_ok=True)
 
         with open(os.path.join(output_dir, 'hosts'), 'w') as file:
@@ -73,7 +73,7 @@ def main():
     all_inventory.append("[ALL:children]")
     all_inventory.extend(node_names)
 
-    with open('../inventories/all.hosts', 'w') as file:
+    with open('Dynamic_Inventory/all.hosts', 'w') as file:
         file.write("\n".join(all_inventory))
 
     print("Ansible inventory files were successfully generated for all nodes and total inventory.")
