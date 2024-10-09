@@ -1,15 +1,14 @@
 {
     "nodes": [
         {
-            "json_file": "Dynamic_Inventory/dynamic/node1.json",
-            "noeud": "node1"
+            "json_file": "Dynamic_Inventory/dynamic/pve.json",
+            "noeud": "pve"
         }
 
     ],
     "groups": [
-        "LAN",
-        "DMZ",
-        "WAN",
-        "DEV"
+        "sysadmin",
+        "dev",
+        "global"
     ]
 }

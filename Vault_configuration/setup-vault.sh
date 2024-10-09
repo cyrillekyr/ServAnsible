@@ -4,7 +4,7 @@ source "./Log_Management/logger.sh"
 source config.sh
 
 # JSON file containing the node information
-NODES_FILE="nodes.json"
+NODES_FILE="Dynamic_Inventory/dynamic/config.json"
 
 # Function to store the password in Vault
 store_password_in_vault() {
