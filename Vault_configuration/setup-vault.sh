@@ -20,7 +20,7 @@ echo "[+] Vault Configuration"
 # Check if Vault is correctly configured
 if ! vault status > /dev/null 2>&1; then
     echo "Vault is not accessible or properly configured. Please check your Vault setup."
-    generate_log "${LOG_LEVEL[1]}" "${SERVICE[3]}" "Vault is not accessible or properly configured. Please check your Vault setup."
+    general_log "${LOG_LEVEL[1]}" "${SERVICE[3]}" "Vault is not accessible or properly configured. Please check your Vault setup."
     exit 1
 fi
 
@@ -36,7 +36,7 @@ for node in $nodes; do
     store_password_in_vault $node $password
 
     echo "Password for $node successfully stored in Vault."
-    generate_log "${LOG_LEVEL[1]}" "${SERVICE[3]}" "Password for $node successfully stored in Vault."
+    general_log "${LOG_LEVEL[1]}" "${SERVICE[3]}" "Password for $node successfully stored in Vault."
 done
 
 echo "All passwords have been stored."

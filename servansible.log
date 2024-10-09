@@ -166,3 +166,257 @@
   "ip": "172.24.163.204",
   "message": "Deleting groups admin,developers,users,audit from all servers"
 }
+{
+  "timestamp": "2024-10-09T02:42:29Z",
+  "level": "INFO",
+  "service": "USER MANAGEMENT",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Adding users user1,user2,user3,test on all servers"
+}
+{
+  "timestamp": "2024-10-09T02:46:25Z",
+  "level": "INFO",
+  "service": "USER MANAGEMENT",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Adding users  on all servers"
+}
+{
+  "timestamp": "2024-10-09T02:50:06Z",
+  "level": "INFO",
+  "service": "USER MANAGEMENT",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Adding users  on all servers"
+}
+{
+  "timestamp": "2024-10-09T02:59:19Z",
+  "level": "INFO",
+  "service": "USER MANAGEMENT",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Adding users  on all servers"
+}
+{
+  "timestamp": "2024-10-09T03:01:04Z",
+  "level": "INFO",
+  "service": "USER MANAGEMENT",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Adding users user1,user2,user3,test on all servers"
+}
+{
+  "timestamp": "1728442953",
+  "level": "INFO",
+  "service": "USER MANAGEMENT",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Adding users user1,user2,user3,test on all servers"
+}
+{
+  "timestamp": "1728443196",
+  "level": "INFO",
+  "service": "VAULT CONFIGURATION",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Vault is not accessible or properly configured. Please check your Vault setup."
+}
+{
+  "timestamp": "1728465113",
+  "level": "INFO",
+  "service": "USER MANAGEMENT",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Adding users user1,user2,user3,test on all servers"
+}
+{
+  "timestamp": "1728466167",
+  "level": "INFO",
+  "service": "USER MANAGEMENT",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Adding users user1,user2,user3,test on all servers"
+}
+{
+  "timestamp": "1728466915",
+  "level": "INFO",
+  "service": "USER MANAGEMENT",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Adding users user1,user2,user3,test on all servers"
+}
+{
+  "timestamp": "1728467570",
+  "level": "INFO",
+  "service": "USER MANAGEMENT",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Adding users user1,user2,user3,test on all servers\n\nHost: 192.168.214.128           
+  Status: OK
+  ok: 3, changed: 0, unreachable: 0, failed: 0, skipped: 0, rescued: 0, ignored: 0
+
+Host: 192.168.214.14            
+  Status: UNREACHABLE
+  ok: 0, changed: 0, unreachable: 1, failed: 0, skipped: 0, rescued: 0, ignored: 0"
+}
+{
+  "timestamp": "1728467787",
+  "level": "INFO",
+  "service": "USER MANAGEMENT",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Adding users user1,user2,user3,test on all servers
+
+Host: 192.168.214.128           
+  Status: OK
+  ok: 3, changed: 0, unreachable: 0, failed: 0, skipped: 0, rescued: 0, ignored: 0
+
+Host: 192.168.214.14            
+  Status: UNREACHABLE
+  ok: 0, changed: 0, unreachable: 1, failed: 0, skipped: 0, rescued: 0, ignored: 0"
+}
+{
+  "timestamp": "1728468338",
+  "level": "INFO",
+  "service": "USER MANAGEMENT",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Adding users user1,user2,user3,test on all servers
+
+Host: 192.168.214.128           
+  Status: OK
+  ok: 3, changed: 0, unreachable: 0, failed: 0, skipped: 0, rescued: 0, ignored: 0
+
+Host: 192.168.214.14            
+  Status: UNREACHABLE
+  ok: 0, changed: 0, unreachable: 1, failed: 0, skipped: 0, rescued: 0, ignored: 0"
+}
+{
+  "timestamp": "1728468418",
+  "level": "INFO",
+  "service": "USER MANAGEMENT",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Adding users user1,user2,user3,test on all servers
+
+Host: 192.168.214.128           
+  Status: OK
+  ok: 3, changed: 0, unreachable: 0, failed: 0, skipped: 0, rescued: 0, ignored: 0
+
+Host: 192.168.214.14            
+  Status: UNREACHABLE
+  ok: 0, changed: 0, unreachable: 1, failed: 0, skipped: 0, rescued: 0, ignored: 0"
+}
+{
+  "timestamp": "1728468484",
+  "level": "INFO",
+  "service": "USER MANAGEMENT",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Adding users user1,user2,user3,test on servers '192.168.214.128'
+
+Host: 
+  Status: OK
+  ok: , changed: , unreachable: , failed: , skipped: , rescued: , ignored: "
+}
+{
+  "timestamp": "1728468734",
+  "level": "INFO",
+  "service": "USER MANAGEMENT",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Adding users user1,user2,user3,test on servers '192.168.214.128'
+
+Host: 
+  Status: OK
+  ok: , changed: , unreachable: , failed: , skipped: , rescued: , ignored: "
+}
+{
+  "timestamp": "1728468794",
+  "level": "INFO",
+  "service": "USER MANAGEMENT",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Adding users user1,user2,user3,test on servers '192.168.214.128'
+
+Host: 192.168.214.128           
+  Status: OK
+  ok: 3, changed: 0, unreachable: 0, failed: 0, skipped: 0, rescued: 0, ignored: 0"
+}
+{
+  "timestamp": "1728468919",
+  "level": "INFO",
+  "service": "USER MANAGEMENT",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Deleting users user1,user2,user3,test from servers '192.168.214.128'
+
+Host: 192.168.214.128           
+  Status: OK
+  ok: 3, changed: 0, unreachable: 0, failed: 0, skipped: 0, rescued: 0, ignored: 0"
+}
+{
+  "timestamp": "2024-10-09T10:26:03Z",
+  "level": "ERROR",
+  "service": "DYNAMIC INVENTORY",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Dynamic Inventory"
+}
+{
+  "timestamp": "2024-10-09T10:27:22Z",
+  "level": "ERROR",
+  "service": "DYNAMIC INVENTORY",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Dynamic Inventory"
+}
+{
+  "timestamp": "2024-10-09T10:28:33Z",
+  "level": "ERROR",
+  "service": "DYNAMIC INVENTORY",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Dynamic Inventory"
+}
+{
+  "timestamp": "2024-10-09T10:29:05Z",
+  "level": "ERROR",
+  "service": "DYNAMIC INVENTORY",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Dynamic Inventory"
+}
+{
+  "timestamp": "2024-10-09T10:30:44Z",
+  "level": "ERROR",
+  "service": "DYNAMIC INVENTORY",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Dynamic Inventory"
+}
+{
+  "timestamp": "1728480091",
+  "level": "INFO",
+  "service": "USER MANAGEMENT",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Adding users user1,user2,user3,test on servers '192.168.214.128'
+
+Host: 192.168.214.128           
+  Status: CHANGED
+  ok: 3, changed: 1, unreachable: 0, failed: 0, skipped: 0, rescued: 0, ignored: 0"
+}
+{
+  "timestamp": "1728480187",
+  "level": "INFO",
+  "service": "USER MANAGEMENT",
+  "user": "operion",
+  "ip": "172.24.163.204",
+  "message": "Deleting users user1,user2,user3,test from servers '192.168.214.128'
+
+Host: 192.168.214.128           
+  Status: CHANGED
+  ok: 3, changed: 1, unreachable: 0, failed: 0, skipped: 0, rescued: 0, ignored: 0"
+}

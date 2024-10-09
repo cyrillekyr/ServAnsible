@@ -1,0 +1,21 @@
+
+PLAY [Ajouter des utilisateurs et gérer les groupes] ***************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [192.168.214.128]
+
+TASK [Créer les groupes si nécessaires] ****************************************
+ok: [192.168.214.128] => (item=admin)
+ok: [192.168.214.128] => (item=developers)
+ok: [192.168.214.128] => (item=users)
+ok: [192.168.214.128] => (item=audit)
+
+TASK [Ajouter les utilisateurs et les assigner aux groupes] ********************
+changed: [192.168.214.128] => (item={'name': 'user1', 'groups': ['admin', 'developers']})
+changed: [192.168.214.128] => (item={'name': 'user2', 'groups': ['users']})
+changed: [192.168.214.128] => (item={'name': 'user3', 'groups': ['users', 'audit']})
+changed: [192.168.214.128] => (item={'name': 'test', 'groups': ['audit']})
+
+PLAY RECAP *********************************************************************
+192.168.214.128            : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

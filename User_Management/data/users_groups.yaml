@@ -1,0 +1,19 @@
+# Liste des utilisateurs et des groupes auxquels ils appartiennent
+users:
+  - name: "user1"               # Nom du premier utilisateur
+    groups:                      # Groupes auxquels l'utilisateur appartient
+      - "admin"                  # Groupe des administrateurs, avec accès privilégié
+      - "developers"             # Groupe des développeurs, accès aux outils de développement
+
+  - name: "user2"               # Nom du deuxième utilisateur
+    groups:
+      - "users"                 # Groupe des utilisateurs standards, accès limité
+
+  - name: "user3"               # Nom du troisième utilisateur
+    groups:
+      - "users"                 # Appartient au groupe des utilisateurs standards
+      - "audit"                 # Appartient au groupe d'audit, accès aux logs et rapports
+
+  - name: "test"                # Utilisateur de test, généralement utilisé pour des essais
+    groups:
+      - "audit"                 # Appartient uniquement au groupe d'audit

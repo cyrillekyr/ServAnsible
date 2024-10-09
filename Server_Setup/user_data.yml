@@ -1,8 +1,0 @@
-users:
-  - name: "test1"
-    groups:
-      - "testgroup1"
-  - name: test2
-    groups:
-      - "testgroup1"
-      - "testgroup2"

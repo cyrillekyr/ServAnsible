@@ -1,7 +1,7 @@
 {
     "nodes": [
         {
-            "json_file": "node1.json",
+            "json_file": "Dynamic_Inventory/dynamic/node1.json",
             "noeud": "node1"
         }
 

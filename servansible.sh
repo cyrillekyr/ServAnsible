@@ -15,11 +15,11 @@ function show_help() {
     echo "  delgroup   Delete a group"
     echo "  setup-serv Deploy default configurations on a server"
     echo "  dynamic    Dynamic Inventory"
-    echo "  list-groups   List all available server groups"
+    echo "  ls-groups   List all available server groups"
     echo "  list-servers  List all available servers"
     echo "  list-nodes    List all nodes"
     echo "  pingtest      Check servers Availability"
-    echo "  vault-setup   Setup passwords for nodes"
+    echo "  setup-vault   Setup passwords for nodes"
     echo ""
     echo "Options:"
     echo "  -a              Deploy on all servers"
@@ -49,6 +49,25 @@ function list_groups() {
         echo "- $group"
     done
     exit 0
+}
+
+list_nodes() {
+    # Charger directement config.json
+    local config_file="Dynamic_Inventory/dynamic/config.json"
+
+    # Vérifier si le fichier existe
+    if [[ ! -f "$config_file" ]]; then
+        echo "Fichier $config_file introuvable."
+        return 1
+    fi
+
+    # Utiliser jq pour extraire et lister les noms des nœuds
+    nodes=$(jq -r '.nodes[] | .noeud' "$config_file")
+    for node in $nodes; do
+        echo "- $node"
+    done
+    exit 0
+
 }
 
 
@@ -129,14 +148,14 @@ function pingtest() {
     
 }
 
-function vault-setup() {
-    bash Vault_configuration/vault-setup.sh
+function setup-vault() {
+    bash Vault_configuration/setup-vault.sh
 }
 
 function dynamic_inventory() {
     echo "Starting Dynamic Inventory ....."
     bash Dynamic_Inventory/dynamic/dynamic_inventory.sh
-    generate_log "${LOG_LEVEL[0]}" "${SERVICE[2]}" "Dynamic Inventory"
+    general_log "${LOG_LEVEL[0]}" "${SERVICE[2]}" "Dynamic Inventory"
 }
 
 # Target determination and action application
@@ -151,8 +170,8 @@ function perform_action() {
     case "$action" in
         adduser)
             echo "Adding users to $message..."
-            ansible-playbook -i "$target" User_Management/create_user.yml
-            users=$(grep -E 'name:' User_Management/users_groups.yaml | sed 's/.*name: "\(.*\)".*/\1/' | paste -sd "," -)
+            ansible-playbook -i "$target" User_Management/create_user.yml | tee ansible_output.log
+            users=$(grep -E 'name:' User_Management/data/users_groups.yaml | sed 's/.*name: "\(.*\)".*/\1/' | paste -sd "," -)
             generate_log "${LOG_LEVEL[1]}" "${SERVICE[0]}" "Adding users $users on $message"
 
             ;;
@@ -160,21 +179,21 @@ function perform_action() {
             echo "Deleting users from $message..."
             # Insert Ansible or bash logic for deleting user
             ansible-playbook -i "$target" User_Management/delete_user.yml
-            users=$(grep -E '^\s*-\s*"' User_Management/users.yaml | sed 's/.*- "\(.*\)".*/\1/' | paste -sd "," -)
+            users=$(grep -E '^\s*-\s*"' User_Management/data/users.yaml | sed 's/.*- "\(.*\)".*/\1/' | paste -sd "," -)
             generate_log "${LOG_LEVEL[1]}" "${SERVICE[0]}" "Deleting users "$users" from $message"
             ;;
         addgroup)
             echo "Adding group to $message..."
             # Insert Ansible or bash logic for adding group
             ansible-playbook -i "$target" User_Management/create_group.yml
-            groups=$(grep -E '^\s*-\s*"' User_Management/groups.yaml | sed 's/.*- "\(.*\)".*/\1/' | paste -sd "," -)
+            groups=$(grep -E '^\s*-\s*"' User_Management/data/groups.yaml | sed 's/.*- "\(.*\)".*/\1/' | paste -sd "," -)
             generate_log "${LOG_LEVEL[1]}" "${SERVICE[0]}" "Adding groups $groups on $message"
             ;;
         delgroup)
             echo "Deleting group from $message..."
             # Insert Ansible or bash logic for deleting group
             ansible-playbook -i "$target" User_Management/delete_group.yml
-            groups=$(grep -E '^\s*-\s*"' User_Management/groups.yaml | sed 's/.*- "\(.*\)".*/\1/' | paste -sd "," -)
+            groups=$(grep -E '^\s*-\s*"' User_Management/data/groups.yaml | sed 's/.*- "\(.*\)".*/\1/' | paste -sd "," -)
             generate_log "${LOG_LEVEL[1]}" "${SERVICE[0]}" "Deleting groups $groups from $message"
             ;;
         setup-serv)
@@ -202,7 +221,7 @@ GROUP=""
 
 
 # Actions that don't require options
-NO_OPTION_ACTIONS=("dynamic" "list-groups" "list-servers" "pingtest" "vault-setup")
+NO_OPTION_ACTIONS=("dynamic" "ls-groups" "list-servers" "list-nodes" "pingtest" "setup-vault")
 
 # Function to check if the action is in the NO_OPTION_ACTIONS array
 function is_no_option_action() {
@@ -226,8 +245,11 @@ if is_no_option_action "$ACTION"; then
         pingtest)
             pingtest
             ;;
-        list-groups)
+        ls-groups)
             list_groups
+            ;;
+        list-nodes)
+            list_nodes
             ;;
         list-servers)
             list_servers
@@ -235,8 +257,8 @@ if is_no_option_action "$ACTION"; then
         dynamic)
             dynamic_inventory
             ;;
-        vault-setup)
-            vault-setup
+        setup-vault)
+            setup-vault
             ;;
     esac
     exit 0
@@ -293,7 +315,7 @@ elif [[ -n "$NODE" ]]; then
 elif [[ -n "$SERVER_LIST" ]]; then
     IFS=',' read -r -a servers <<< "$SERVER_LIST"
     for server in "${servers[@]}"; do
-        perform_action "$ACTION" "servers '$server'" "$server" # Or $GROUP
+        perform_action "$ACTION" "servers '$server'" "$server," # Or $GROUP
     done
 else
     echo "Error: You must specify an option for deployment (-a, -s, or -n)."

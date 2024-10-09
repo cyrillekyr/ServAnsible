@@ -5,7 +5,7 @@
   remote_user: root
   become: yes
   vars_files:
-    - users.yaml  # Fichier contenant les utilisateurs à supprimer
+    - data/users.yaml  # Fichier contenant les utilisateurs à supprimer
 
   tasks:
     - name: Supprimer les utilisateurs

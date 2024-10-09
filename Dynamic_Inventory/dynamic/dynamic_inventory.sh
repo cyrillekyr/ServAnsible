@@ -2,9 +2,9 @@
 
 source config.sh
 
-PROXMOX_PASSWORD=$(vault kv get -field=password secret/nodes/node1)
+#PROXMOX_PASSWORD=$(vault kv get -field=password secret/nodes/node1)
 
-python3 $INVENTORIES/dynamic/proxmox.py --url=hub.com --username=user --password=$PROXMOX_PASSWORD --trust-invalid-certs --list --pretty > ../inventories/dynamic/node1.json
+python3 Dynamic_Inventory/dynamic/proxmox.py --url=https://192.168.10.106:8006/ --username=root@pam --password=Uranus82 --trust-invalid-certs --list --pretty > Dynamic_Inventory/dynamic/node1.json
 
-python3 $INVENTORIES/dynamic/process.py config.json
+python3 Dynamic_Inventory/dynamic/process.py Dynamic_Inventory/dynamic/config.json
 

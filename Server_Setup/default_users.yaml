@@ -3,7 +3,7 @@
   become: yes
   remote_user: root
   vars_files:
-    - user_data.yml  # Inclusion du fichier des utilisateurs
+    - data/user_data.yml  # Inclusion du fichier des utilisateurs
 
   tasks:
     - name: Créer les groupes si nécessaires

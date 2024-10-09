@@ -1,0 +1,10 @@
+# Liste des utilisateurs de test et des groupes auxquels ils appartiennent
+users:
+  - name: "test1"               # Nom du premier utilisateur de test
+    groups:                      # Groupes auxquels cet utilisateur appartient
+      - "testgroup1"             # Groupe testgroup1, à définir selon vos besoins
+
+  - name: "test2"                 # Nom du deuxième utilisateur de test 
+    groups:
+      - "testgroup1"             # Appartient également au groupe testgroup1
+      - "testgroup2"             # Appartient au groupe testgroup2 pour des tests supplémentaires
