@@ -1,0 +1,2 @@
+syszone.tettrix.lab ansible_host=syszone.tettrix.lab
+bastion.tettrix.lab ansible_host=bastion.tettrix.lab

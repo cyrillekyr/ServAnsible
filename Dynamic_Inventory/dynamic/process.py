@@ -49,8 +49,8 @@ def main():
 
     # Générer les inventaires pour chaque fichier JSON
     for node in nodes:
-        json_file = node["json_file"]
-        noeud = node["noeud"]
+        json_file = node["file_path"]
+        noeud = node["name"]
 
         inventory, group_dict = generer_inventaire(json_file, noeud, groups)
         node_names.append(noeud)

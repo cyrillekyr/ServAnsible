@@ -17,16 +17,20 @@ parse_ansible_output() {
         rescued_count=$(grep "$host" "$ansible_output" | awk -F "rescued=" '{print $2}' | awk '{print $1}')
         ignored_count=$(grep "$host" "$ansible_output" | awk -F "ignored=" '{print $2}' | awk '{print $1}')
 
+
+
+
         # Determine the overall status
-        if (( unreachable_count > 0 )); then
-    		status="UNREACHABLE"
-	elif (( failed_count > 0 )); then
-    		status="FAILED"
-	elif (( changed_count > 0 )); then
-    		status="CHANGED"
-	else
-    		status="OK"
-	fi
+        if [[ $unreachable_count -gt 0 ]]; then
+            status="UNREACHABLE"
+        elif [[ $failed_count -gt 0 ]]; then
+            status="FAILED"
+        elif [[ $changed_count -gt 0 ]]; then
+            status="CHANGED"
+        else
+            status="OK"
+        fi
+
         # Construct the log message for each host
         log_message+="Host: $host\n"
         log_message+="  Status: $status\n"

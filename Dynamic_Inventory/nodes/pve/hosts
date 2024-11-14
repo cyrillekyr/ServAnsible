@@ -14,7 +14,3 @@ toto.tettrix.lab ansible_host=toto.tettrix.lab
 pve_sysadmin
 pve_dev
 pve_global
-
-
-[ALL:children]
-pve

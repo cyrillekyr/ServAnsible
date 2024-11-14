@@ -1,0 +1,17 @@
+[sysadmin-dev]
+m.zanda sysadmin,dev
+h.sottin    sysadmin,dev
+j.afouda    sysadmin,dev
+
+[dev]
+s.mvogo dev
+k.adossou   dev
+d.allognon  dev
+
+[sysadmin]
+c.assogba   sysadmin
+a.houngbetode   sysadmin
+
+[dexploit]
+sysadmin    dexploit
+dev dexploit

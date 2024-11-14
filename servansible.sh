@@ -20,6 +20,8 @@ function show_help() {
     echo "  list-nodes      List all nodes"
     echo "  pingtest        Check servers Availability"
     echo "  setup-vault     Setup passwords for nodes"
+    echo "  deploy-lxc      Setup passwords for nodes"
+    echo "  deploy-vm       Setup passwords for nodes"
     echo ""
     echo "Options:"
     echo "  -a              Deploy on all servers"
@@ -152,10 +154,23 @@ function setup-vault() {
     bash Vault_configuration/setup-vault.sh
 }
 
+function deploy-lxc() {
+    echo "Deploying LXC container......"
+    python3 Terraform_Deployment/LXC_Deployment/lxc_provision.py
+   
+}
+
+function deploy-vm() {
+    echo "Logic code for VM deployment"
+   
+}
+
+
+
 function dynamic_inventory() {
     echo "Starting Dynamic Inventory ....."
     bash Dynamic_Inventory/dynamic/dynamic_inventory.sh
-    general_log "${LOG_LEVEL[0]}" "${SERVICE[2]}" "Dynamic Inventory"
+    general_log "${LOG_LEVEL[1]}" "${SERVICE[2]}" "Dynamic Inventory"
 }
 
 # Target determination and action application
@@ -172,7 +187,7 @@ function perform_action() {
             echo "Adding users to $message..."
             ansible-playbook -i "$target" User_Management/create_user.yml | tee ansible_output.log
             users=$(grep -E 'name:' User_Management/data/users_groups.yaml | sed 's/.*name: "\(.*\)".*/\1/' | paste -sd "," -)
-            generate_log "${LOG_LEVEL[1]}" "${SERVICE[0]}" "Adding users $users on $message"
+            general_log "${LOG_LEVEL[1]}" "${SERVICE[0]}" "Adding users $users on $message"
 
             ;;
         deluser)
@@ -180,26 +195,26 @@ function perform_action() {
             # Insert Ansible or bash logic for deleting user
             ansible-playbook -i "$target" User_Management/delete_user.yml
             users=$(grep -E '^\s*-\s*"' User_Management/data/users.yaml | sed 's/.*- "\(.*\)".*/\1/' | paste -sd "," -)
-            generate_log "${LOG_LEVEL[1]}" "${SERVICE[0]}" "Deleting users "$users" from $message"
+            general_log "${LOG_LEVEL[1]}" "${SERVICE[0]}" "Deleting users "$users" from $message"
             ;;
         addgroup)
             echo "Adding group to $message..."
             # Insert Ansible or bash logic for adding group
             ansible-playbook -i "$target" User_Management/create_group.yml
             groups=$(grep -E '^\s*-\s*"' User_Management/data/groups.yaml | sed 's/.*- "\(.*\)".*/\1/' | paste -sd "," -)
-            generate_log "${LOG_LEVEL[1]}" "${SERVICE[0]}" "Adding groups $groups on $message"
+            general_log "${LOG_LEVEL[1]}" "${SERVICE[0]}" "Adding groups $groups on $message"
             ;;
         delgroup)
             echo "Deleting group from $message..."
             # Insert Ansible or bash logic for deleting group
             ansible-playbook -i "$target" User_Management/delete_group.yml
             groups=$(grep -E '^\s*-\s*"' User_Management/data/groups.yaml | sed 's/.*- "\(.*\)".*/\1/' | paste -sd "," -)
-            generate_log "${LOG_LEVEL[1]}" "${SERVICE[0]}" "Deleting groups $groups from $message"
+            general_log "${LOG_LEVEL[1]}" "${SERVICE[0]}" "Deleting groups $groups from $message"
             ;;
         setup-serv)
             echo "Deploying default configurations on $message"
             ansible-playbook -i "$target" Server_Setup/default_users.yaml
-            generate_log "${LOG_LEVEL[1]}" "${SERVICE[0]}" "Deploying default configurations on $message"
+            general_log "${LOG_LEVEL[1]}" "${SERVICE[1]}" "Deploying default configurations on $message"
             ;;
         *)
             echo "Error: Invalid action '$action'."
@@ -221,7 +236,7 @@ GROUP=""
 
 
 # Actions that don't require options
-NO_OPTION_ACTIONS=("dynamic" "ls-groups" "list-servers" "list-nodes" "pingtest" "setup-vault")
+NO_OPTION_ACTIONS=("dynamic" "ls-groups" "list-servers" "list-nodes" "pingtest" "setup-vault" "deploy-lxc" "deploy-vm")
 
 # Function to check if the action is in the NO_OPTION_ACTIONS array
 function is_no_option_action() {
@@ -259,6 +274,12 @@ if is_no_option_action "$ACTION"; then
             ;;
         setup-vault)
             setup-vault
+            ;;
+        deploy-lxc)
+            deploy-lxc
+            ;;
+        deploy-vm)
+            deploy-vm
             ;;
     esac
     exit 0

@@ -25,7 +25,7 @@ if ! vault status > /dev/null 2>&1; then
 fi
 
 # Read the node information from the JSON file
-nodes=$(jq -r '.nodes[] | .noeud' $NODES_FILE)
+nodes=$(jq -r '.nodes[] | .name' $NODES_FILE)
 
 # Loop through each node and ask for the password
 for node in $nodes; do

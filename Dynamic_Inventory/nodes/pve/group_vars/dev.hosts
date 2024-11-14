@@ -1,0 +1,2 @@
+database.tettrix.lab ansible_host=database.tettrix.lab
+webserver.tettrix.lab ansible_host=webserver.tettrix.lab

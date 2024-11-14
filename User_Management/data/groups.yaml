@@ -1,7 +1,5 @@
 # groups.yaml
 groups_list :
-  - "admin"
-  - "developers"
-  - "users"
-  - "audit"
-
+  - "tata"
+  - "titi"
+  - "abobo"

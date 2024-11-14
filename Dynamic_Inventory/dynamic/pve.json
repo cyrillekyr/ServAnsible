@@ -1,0 +1,170 @@
+{
+  "all": {
+    "hosts": []
+  },
+  "_meta": {
+    "hostvars": {
+      "opnsense.tettrix.lab": {
+        "proxmox_vmid": 100,
+        "proxmox_maxdisk": 34359738368,
+        "proxmox_tags": "dmz",
+        "proxmox_maxmem": 4294967296,
+        "proxmox_diskread": 0,
+        "proxmox_name": "opnsense.tettrix.lab",
+        "proxmox_cpu": 0,
+        "proxmox_status": "running",
+        "proxmox_disk": 0,
+        "proxmox_netout": 416069,
+        "proxmox_netin": 1835289,
+        "proxmox_diskwrite": 0,
+        "proxmox_uptime": 139661,
+        "proxmox_cpus": 2,
+        "proxmox_pid": 997,
+        "proxmox_mem": 3730057390,
+        "proxmox_type": "qemu"
+      },
+      "database.tettrix.lab": {
+        "proxmox_diskread": 453640192,
+        "proxmox_maxmem": 536870912,
+        "proxmox_maxdisk": 8350298112,
+        "proxmox_tags": "dev",
+        "proxmox_vmid": 104,
+        "proxmox_status": "running",
+        "proxmox_type": "lxc",
+        "proxmox_cpu": 0,
+        "proxmox_maxswap": 536870912,
+        "proxmox_name": "database.tettrix.lab",
+        "proxmox_disk": 671596544,
+        "proxmox_swap": 0,
+        "proxmox_netout": 381944,
+        "proxmox_diskwrite": 47132672,
+        "proxmox_netin": 7376929,
+        "proxmox_cpus": 1,
+        "proxmox_uptime": 139468,
+        "proxmox_pid": 2552,
+        "proxmox_mem": 27070464,
+        "ansible_host": "database.tettrix.lab"
+      },
+      "webserver.tettrix.lab": {
+        "proxmox_diskwrite": 47546368,
+        "proxmox_netin": 3870113,
+        "proxmox_uptime": 139515,
+        "proxmox_cpus": 1,
+        "proxmox_pid": 2042,
+        "proxmox_mem": 26636288,
+        "proxmox_maxmem": 536870912,
+        "proxmox_diskread": 429920256,
+        "proxmox_vmid": 103,
+        "proxmox_tags": "dev",
+        "proxmox_maxdisk": 8350298112,
+        "proxmox_type": "lxc",
+        "proxmox_status": "running",
+        "proxmox_maxswap": 536870912,
+        "proxmox_name": "webserver.tettrix.lab",
+        "proxmox_cpu": 0,
+        "proxmox_disk": 679985152,
+        "proxmox_swap": 0,
+        "proxmox_netout": 224682,
+        "ansible_host": "webserver.tettrix.lab"
+      },
+      "syszone.tettrix.lab": {
+        "proxmox_uptime": 139609,
+        "proxmox_cpus": 1,
+        "proxmox_netin": 2620584,
+        "proxmox_diskwrite": 40992768,
+        "proxmox_mem": 26390528,
+        "proxmox_pid": 1220,
+        "proxmox_name": "syszone.tettrix.lab",
+        "proxmox_maxswap": 536870912,
+        "proxmox_cpu": 0,
+        "proxmox_type": "lxc",
+        "proxmox_status": "running",
+        "proxmox_vmid": 101,
+        "proxmox_maxdisk": 8350298112,
+        "proxmox_tags": "sysadmin",
+        "proxmox_maxmem": 536870912,
+        "proxmox_diskread": 424464384,
+        "proxmox_netout": 154169,
+        "proxmox_swap": 0,
+        "proxmox_disk": 671563776,
+        "ansible_host": "syszone.tettrix.lab"
+      },
+      "toto.tettrix.lab": {
+        "proxmox_name": "toto.tettrix.lab",
+        "proxmox_maxswap": 536870912,
+        "proxmox_cpu": 0,
+        "proxmox_type": "lxc",
+        "proxmox_status": "running",
+        "proxmox_vmid": 102,
+        "proxmox_maxdisk": 8350298112,
+        "proxmox_tags": "global",
+        "proxmox_maxmem": 536870912,
+        "proxmox_diskread": 427511808,
+        "proxmox_netout": 228582,
+        "proxmox_swap": 0,
+        "proxmox_disk": 671584256,
+        "proxmox_uptime": 139562,
+        "proxmox_cpus": 1,
+        "proxmox_netin": 3994331,
+        "proxmox_diskwrite": 45641728,
+        "proxmox_mem": 26566656,
+        "proxmox_pid": 1538,
+        "ansible_host": "toto.tettrix.lab"
+      },
+      "bastion.tettrix.lab": {
+        "proxmox_mem": 90345472,
+        "proxmox_pid": 3255,
+        "proxmox_uptime": 139419,
+        "proxmox_cpus": 1,
+        "proxmox_netin": 992811,
+        "proxmox_diskwrite": 45584384,
+        "proxmox_netout": 17539895,
+        "proxmox_swap": 675840,
+        "proxmox_disk": 1964285952,
+        "proxmox_name": "bastion.tettrix.lab",
+        "proxmox_maxswap": 536870912,
+        "proxmox_cpu": 0.422393826159318,
+        "proxmox_type": "lxc",
+        "proxmox_status": "running",
+        "proxmox_vmid": 105,
+        "proxmox_maxdisk": 8350298112,
+        "proxmox_tags": "sysadmin",
+        "proxmox_maxmem": 536870912,
+        "proxmox_diskread": 1259544576,
+        "ansible_host": "bastion.tettrix.lab"
+      }
+    }
+  },
+  "running": {
+    "hosts": [
+      "opnsense.tettrix.lab",
+      "database.tettrix.lab",
+      "webserver.tettrix.lab",
+      "syszone.tettrix.lab",
+      "toto.tettrix.lab",
+      "bastion.tettrix.lab"
+    ]
+  },
+  "dmz": {
+    "hosts": [
+      "opnsense.tettrix.lab"
+    ]
+  },
+  "dev": {
+    "hosts": [
+      "database.tettrix.lab",
+      "webserver.tettrix.lab"
+    ]
+  },
+  "sysadmin": {
+    "hosts": [
+      "syszone.tettrix.lab",
+      "bastion.tettrix.lab"
+    ]
+  },
+  "global": {
+    "hosts": [
+      "toto.tettrix.lab"
+    ]
+  }
+}

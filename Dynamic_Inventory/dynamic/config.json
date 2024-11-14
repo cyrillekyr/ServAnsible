@@ -1,8 +1,12 @@
 {
     "nodes": [
         {
-            "json_file": "Dynamic_Inventory/dynamic/pve.json",
-            "noeud": "pve"
+            "file_path": "Dynamic_Inventory/dynamic/pve.json",
+            "name": "pve"
+        },
+        {
+            "file_path": "Dynamic_Inventory/dynamic/pve.json",
+            "name": "labtettrix"
         }
 
     ],
