@@ -20,8 +20,7 @@ function show_help() {
     echo "  list-nodes      List all nodes"
     echo "  pingtest        Check servers Availability"
     echo "  setup-vault     Setup passwords for nodes"
-    echo "  deploy-lxc      Setup passwords for nodes"
-    echo "  deploy-vm       Setup passwords for nodes"
+    echo "  deploy-lxc-vm      Create new LXC or VM machine"
     echo ""
     echo "Options:"
     echo "  -a              Deploy on all servers"
@@ -154,16 +153,10 @@ function setup-vault() {
     bash Vault_configuration/setup-vault.sh
 }
 
-function deploy-lxc() {
-    echo "Deploying LXC container......"
-    python3 Terraform_Deployment/LXC_Deployment/lxc_provision.py
-   
+function deploy-lxc-vm() {
+    python3 Terraform_Deployment/main.py
 }
 
-function deploy-vm() {
-    echo "Logic code for VM deployment"
-   
-}
 
 
 
@@ -236,7 +229,7 @@ GROUP=""
 
 
 # Actions that don't require options
-NO_OPTION_ACTIONS=("dynamic" "ls-groups" "list-servers" "list-nodes" "pingtest" "setup-vault" "deploy-lxc" "deploy-vm")
+NO_OPTION_ACTIONS=("dynamic" "ls-groups" "list-servers" "list-nodes" "pingtest" "setup-vault" "deploy-lxc-vm")
 
 # Function to check if the action is in the NO_OPTION_ACTIONS array
 function is_no_option_action() {
@@ -275,12 +268,10 @@ if is_no_option_action "$ACTION"; then
         setup-vault)
             setup-vault
             ;;
-        deploy-lxc)
-            deploy-lxc
+        deploy-lxc-vm)
+            deploy-lxc-deploy-lxc-vm
             ;;
-        deploy-vm)
-            deploy-vm
-            ;;
+
     esac
     exit 0
 fi

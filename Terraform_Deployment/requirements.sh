@@ -7,4 +7,5 @@ curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
 sudo apt update && sudo apt install terraform
 
-pip install paramiko ping3 # "paramiko" allows us to generate RSA key pair
+# "paramiko" allows us to generate RSA key pair
+pip install paramiko pyyaml ping3

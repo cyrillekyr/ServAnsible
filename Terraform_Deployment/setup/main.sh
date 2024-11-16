@@ -5,11 +5,7 @@ set -ex
 # Function to add users
 add_users() {
     echo "Adding users..."
-    cat /root/users | while read user
-    do
-        echo "Adding user: $user"
-        useradd -m "$user" || echo "User $user already exists."
-    done
+    awk '{ if (NF > 0) { system("echo Adding user: \"" $0 "\"; useradd -m \"" $0 "\" || echo User \"" $0 "\" already exists.") } }' /root/users
 }
 
 # Function to add users to groups

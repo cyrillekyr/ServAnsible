@@ -20,6 +20,11 @@ def terraform_init():
     print("Initializing Terraform...")
     return run_terraform_command(["terraform", "init"])
 
+def terraform_init_upgrade():
+    """Initialise Terraform."""
+    print("Initializing Terraform...")
+    return run_terraform_command(["terraform", "init", "-upgrade"])
+
 def terraform_apply(skip_plan=False):
     """Applique le plan Terraform."""
     print("Applying Terraform configuration...")
