@@ -269,7 +269,7 @@ if is_no_option_action "$ACTION"; then
             setup-vault
             ;;
         deploy-lxc-vm)
-            deploy-lxc-deploy-lxc-vm
+            deploy-lxc-vm
             ;;
 
     esac
